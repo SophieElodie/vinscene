@@ -9,18 +9,24 @@
 <body>
 	<div class="container">
 	<div class="row">
-		<table class="table table-bordered">
-				<thead></thead>
+		<form name="formulaireRecherche" class="navbar-form" onsubmit="clique(); return false;">
+			<input type="text" name="recherche" class="form-control">
+			<input type="radio" name="choixType" value="classement" class="radio-inline" checked>
+			<label>Classement</label>
+			<input type="radio" name="choixType" value="dossard" class="radio-inline">
+			<label>Dossard</label>
+			<button type="submit" class="btn btn-default" onclick="search()">
+			<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Recherche </button>
+		</form>
+	<table class="table table-bordered col-md-12">
+			<thead></thead>
 
-				<tbody id="classement">
+			<tbody id="classement">
 					
-				</tbody>
-		</table>
+			</tbody>
+			</table>
 	</div>
-<form>
-	<input type="text" name="saisie">
-	<input type="button" name="saisie" value="recherche">
-</form>
+
 <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

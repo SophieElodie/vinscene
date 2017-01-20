@@ -3,15 +3,47 @@ var liste2 = [[70,"MOSNIER Bernard",55],[71,"BERGERET Lise",8],[72,"BERGERET Chr
 
 
 var tab = liste.concat(liste2);
-
-		for(var i=0; i<= tab.length-1; i++){
+function afficherUnTableau(monTableau){
+	document.getElementById('classement').innerHTML="";
+		for(var i=0; i<= monTableau.length-1; i++){
 			var lignetab='<tr>';
-			for (var x=0 ; x<= tab[i].length-1; x++){
+			for (var x=0 ; x<= monTableau[i].length-1; x++){
 				lignetab+='<td>';
-				lignetab+=tab[i][x];
+				lignetab+=monTableau[i][x];
 				lignetab+='</td>';
 			}
 			lignetab+='</tr>';
 			document.getElementById('classement').innerHTML+=lignetab;
-
+}
 		}
+
+function search(recherche,tableau, type=2){
+		var resultat= new Array;
+		if (type!=0&&type!=2){
+			type='';
+			console.log("test ok");
+		}
+
+	for (i= 0; i <= tab.length-1; i++){
+	if (recherche == tab[i][type]){
+		resultat.push(tableau[i]);
+	}
+}
+if (!resultat[0]){
+	resultat[0]='pas trouvé';
+}
+
+afficherUnTableau(resultat);
+};
+
+function clique(){
+	var recherche = document.formulaireRecherche.recherche.value;
+	var type = document.formulaireRecherche.choixType.value;
+	if (type=='dossard'){
+		search(recherche,tab,2);
+	}else{
+		search(recherche,tab,0);
+	}
+}
+afficherUnTableau(tab);
+
